@@ -1,0 +1,23 @@
+FROM node:22.8.0-slim
+
+# Create app directory
+RUN mkdir -p /usr/src/app && chown -R node:node /usr/src/app
+WORKDIR /usr/src/app
+
+# Copy package.json and package-lock.json
+COPY package*.json ./
+
+# Install app dependencies
+RUN npm ci
+
+# Bundle app source
+COPY . .
+
+# Build the TypeScript files
+RUN npm run build
+
+# Expose port 8080
+EXPOSE 8080
+
+# Start the app
+CMD npm run start

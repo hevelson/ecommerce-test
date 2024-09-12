@@ -9,4 +9,6 @@ productRouter.get("/", productController.getProducts);
 
 productRouter.get("/:id", validateRequest(GetProductSchema), productController.getProduct);
 
+productRouter.get("/category/:id", validateRequest(GetProductSchema), productController.getProductsByCategory);
+
 export default productRouter;

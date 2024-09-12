@@ -9,6 +9,12 @@ class ProductController {
     return handleServiceResponse(serviceResponse, res);
   };
 
+  public getProductsByCategory: RequestHandler = async (req: Request, res: Response) => {
+    const id = Number.parseInt(req.params.id as string, 10);
+    const serviceResponse = await productService.findAllByCategory(id);
+    return handleServiceResponse(serviceResponse, res);
+  };
+
   public getProduct: RequestHandler = async (req: Request, res: Response) => {
     const id = Number.parseInt(req.params.id as string, 10);
     const serviceResponse = await productService.findById(id);

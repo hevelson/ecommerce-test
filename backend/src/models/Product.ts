@@ -16,8 +16,8 @@ export interface IProduct {
   promotional_price: number;
   available_quantity: number;
 
-  updatedAt?: Date;
-  createdAt?: Date;
+  updated_at?: Date;
+  created_at?: Date;
 }
 
 class Product extends Model<IProduct> implements IProduct {
@@ -27,8 +27,8 @@ class Product extends Model<IProduct> implements IProduct {
   declare promotional_price: number;
   declare available_quantity: number;
 
-  declare readonly updatedAt: Date;
-  declare readonly createdAt: Date;
+  declare readonly updated_at: Date;
+  declare readonly created_at: Date;
 }
 
 Product.init(
@@ -60,11 +60,11 @@ Product.init(
       type: DataTypes.INTEGER,
     },
 
-    createdAt: {
+    created_at: {
       allowNull: false,
       type: DataTypes.DATE,
     },
-    updatedAt: {
+    updated_at: {
       allowNull: false,
       type: DataTypes.DATE,
     },

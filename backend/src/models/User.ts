@@ -11,9 +11,9 @@ export interface IUser {
   address: string;
   phone_number: string;
 
-  updatedAt?: Date;
+  updated_at?: Date;
   deletedAt?: Date;
-  createdAt?: Date;
+  created_at?: Date;
 }
 
 class User extends Model<IUser> implements IUser {
@@ -24,8 +24,8 @@ class User extends Model<IUser> implements IUser {
   declare address: string;
   declare phone_number: string;
 
-  declare readonly updatedAt: Date;
-  declare readonly createdAt: Date;
+  declare readonly updated_at: Date;
+  declare readonly created_at: Date;
 }
 
 User.init(
@@ -62,11 +62,11 @@ User.init(
       type: DataTypes.STRING,
     },
 
-    createdAt: {
+    created_at: {
       allowNull: false,
       type: DataTypes.DATE,
     },
-    updatedAt: {
+    updated_at: {
       allowNull: false,
       type: DataTypes.DATE,
     },

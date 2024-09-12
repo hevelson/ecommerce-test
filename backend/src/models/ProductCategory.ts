@@ -35,6 +35,8 @@ ProductCategory.init(
   {
     sequelize: sequelize,
     modelName: 'product_category',
+    tableName: 'products_categories',
+    timestamps: false,
   }
 );
 

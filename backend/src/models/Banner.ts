@@ -8,16 +8,16 @@ export interface IBanner {
   section: string;
   link: string;
 
-  updatedAt?: Date;
-  createdAt?: Date;
+  updated_at?: Date;
+  created_at?: Date;
 }
 
 class Banner extends Model<IBanner> implements IBanner {
   declare section: string;
   declare link: string;
 
-  declare readonly updatedAt: Date;
-  declare readonly createdAt: Date;
+  declare readonly updated_at: Date;
+  declare readonly created_at: Date;
 }
 
 Banner.init(
@@ -37,11 +37,11 @@ Banner.init(
       type: DataTypes.STRING,
     },
 
-    createdAt: {
+    created_at: {
       allowNull: false,
       type: DataTypes.DATE,
     },
-    updatedAt: {
+    updated_at: {
       allowNull: false,
       type: DataTypes.DATE,
     },

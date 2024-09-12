@@ -10,16 +10,16 @@ export interface IImage {
   file_name: string;
   path: string;
 
-  updatedAt?: Date;
-  createdAt?: Date;
+  updated_at?: Date;
+  created_at?: Date;
 }
 
 class Image extends Model<IImage> implements IImage {
   declare file_name: string;
   declare path: string;
 
-  declare readonly updatedAt: Date;
-  declare readonly createdAt: Date;
+  declare readonly updated_at: Date;
+  declare readonly created_at: Date;
 }
 
 Image.init(
@@ -39,11 +39,11 @@ Image.init(
       type: DataTypes.STRING,
     },
 
-    createdAt: {
+    created_at: {
       allowNull: false,
       type: DataTypes.DATE,
     },
-    updatedAt: {
+    updated_at: {
       allowNull: false,
       type: DataTypes.DATE,
     },

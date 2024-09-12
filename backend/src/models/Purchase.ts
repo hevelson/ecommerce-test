@@ -7,16 +7,16 @@ export interface IPurchase {
   user_id: number;
   status: string;
 
-  updatedAt?: Date;
-  createdAt?: Date;
+  updated_at?: Date;
+  created_at?: Date;
 }
 
 class Purchase extends Model<IPurchase> implements IPurchase {
   declare user_id: number;
   declare status: string;
 
-  declare readonly updatedAt: Date;
-  declare readonly createdAt: Date;
+  declare readonly updated_at: Date;
+  declare readonly created_at: Date;
 }
 
 Purchase.init(
@@ -36,11 +36,11 @@ Purchase.init(
       type: DataTypes.STRING,
     },
 
-    createdAt: {
+    created_at: {
       allowNull: false,
       type: DataTypes.DATE,
     },
-    updatedAt: {
+    updated_at: {
       allowNull: false,
       type: DataTypes.DATE,
     },

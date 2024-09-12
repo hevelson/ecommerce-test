@@ -35,6 +35,8 @@ BannerImage.init(
   {
     sequelize: sequelize,
     modelName: 'banner_image',
+    tableName: 'banners_images',
+    timestamps: false,
   }
 );
 

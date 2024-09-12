@@ -10,8 +10,8 @@ export interface IProductInvoice {
   quantity: number;
   discount: number;
   total: number;
-  createdAt: Date;
-  updatedAt: Date;
+  created_at: Date;
+  updated_at: Date;
 }
 
 class ProductInvoice extends Model<IProductInvoice> implements IProductInvoice {
@@ -21,8 +21,8 @@ class ProductInvoice extends Model<IProductInvoice> implements IProductInvoice {
   declare quantity: number;
   declare discount: number;
   declare total: number;
-  declare createdAt: Date;
-  declare updatedAt: Date;
+  declare created_at: Date;
+  declare updated_at: Date;
 }
 
 ProductInvoice.init(
@@ -60,11 +60,11 @@ ProductInvoice.init(
       type: DataTypes.INTEGER,
     },
 
-    createdAt: {
+    created_at: {
       allowNull: false,
       type: DataTypes.DATE,
     },
-    updatedAt: {
+    updated_at: {
       allowNull: false,
       type: DataTypes.DATE,
     },

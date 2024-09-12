@@ -10,8 +10,8 @@ export interface IInvoice {
   amount: number;
   status: string;
 
-  updatedAt?: Date;
-  createdAt?: Date;
+  updated_at?: Date;
+  created_at?: Date;
 }
 
 class Invoice extends Model<IInvoice> implements IInvoice {
@@ -19,8 +19,8 @@ class Invoice extends Model<IInvoice> implements IInvoice {
   declare amount: number;
   declare status: string;
 
-  declare readonly updatedAt: Date;
-  declare readonly createdAt: Date;
+  declare readonly updated_at: Date;
+  declare readonly created_at: Date;
 }
 
 Invoice.init(
@@ -44,11 +44,11 @@ Invoice.init(
       type: DataTypes.STRING,
     },
 
-    createdAt: {
+    created_at: {
       allowNull: false,
       type: DataTypes.DATE,
     },
-    updatedAt: {
+    updated_at: {
       allowNull: false,
       type: DataTypes.DATE,
     },

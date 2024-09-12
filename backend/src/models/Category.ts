@@ -9,8 +9,8 @@ export interface ICategory {
   title: string;
   description: string;
 
-  updatedAt?: Date;
-  createdAt?: Date;
+  updated_at?: Date;
+  created_at?: Date;
 }
 
 class Category extends Model<ICategory> implements ICategory {
@@ -18,8 +18,8 @@ class Category extends Model<ICategory> implements ICategory {
   declare title: string;
   declare description: string;
 
-  declare readonly updatedAt: Date;
-  declare readonly createdAt: Date;
+  declare readonly updated_at: Date;
+  declare readonly created_at: Date;
 }
 
 Category.init(
@@ -43,11 +43,11 @@ Category.init(
       type: DataTypes.STRING,
     },
 
-    createdAt: {
+    created_at: {
       allowNull: false,
       type: DataTypes.DATE,
     },
-    updatedAt: {
+    updated_at: {
       allowNull: false,
       type: DataTypes.DATE,
     },

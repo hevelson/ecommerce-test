@@ -12,8 +12,8 @@ export interface IProductRate {
   title: string;
   description: string;
   rate: number;
-  createdAt: Date;
-  updatedAt: Date;
+  created_at: Date;
+  updated_at: Date;
 }
 
 class ProductRate extends Model<IProductRate> implements IProductRate {
@@ -23,8 +23,8 @@ class ProductRate extends Model<IProductRate> implements IProductRate {
   declare title: string;
   declare description: string;
   declare rate: number;
-  declare createdAt: Date;
-  declare updatedAt: Date;
+  declare created_at: Date;
+  declare updated_at: Date;
 }
 
 ProductRate.init(
@@ -72,11 +72,11 @@ ProductRate.init(
       type: DataTypes.INTEGER,
     },
 
-    createdAt: {
+    created_at: {
       allowNull: false,
       type: DataTypes.DATE,
     },
-    updatedAt: {
+    updated_at: {
       allowNull: false,
       type: DataTypes.DATE,
     },

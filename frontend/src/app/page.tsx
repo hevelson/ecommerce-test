@@ -1,4 +1,6 @@
 import NavMenu from "@/components/NavMenu";
+import { MagnifyingGlassIcon } from "@heroicons/react/16/solid";
+import { ShoppingCartIcon, UserCircleIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -9,7 +11,7 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <div className="w-full max-w-[1440px] min-h-screen p-0 pb-8 sm:pb-8 mx-auto font-[family-name:var(--font-geist-sans)]">
+    <div className="w-full max-w-[1440px] min-h-screen flex flex-col p-0 mx-auto font-[family-name:var(--font-geist-sans)]">
       <header className="w-full">
         <div className="h-10 flex items-center justify-center px-8 bg-[#4E4E4E] text-white">
           <p className="text-center">
@@ -17,17 +19,24 @@ export default function Home() {
           </p>
           <button className="justify-self-end">X</button>
         </div>
-        <div className="flex h-[110px] items-center px-4 sm:px-[100px]">
+        <div className="flex h-[110px] items-center gap-2 sm:gap-8 px-4 sm:px-[100px]">
           <Link href="/" className="text-4xl font-semibold">
             <h1>Cosméticos&CO</h1>
           </Link>
           <NavMenu />
-          <form action="">
-            <input type="text" name="search" placeholder="O que você está buscando hoje?" />
+          <form action="" className="w-full ">
+            <div className="relative">
+              <MagnifyingGlassIcon className="w-5 h-5 fill-[#909090] absolute top-[15px] left-[17px]" />
+              <input type="text" name="search" placeholder="O que você está buscando hoje?" className="h-50 px-2 py-2 sm:py-3.5 sm:px-[54px] bg-[#F0F0F0] rounded-full" />
+            </div>
           </form>
-          <div>
-            <a href="/cart">Carrinho</a>
-            <a href="/account">Minha conta</a>
+          <div className="flex gap-3">
+            <Link href="/cart" title="Carrinho">
+              <ShoppingCartIcon className="w-6 h-6 text-[#909090]" />
+            </Link>
+            <Link href="/account" title="Minha conta">
+              <UserCircleIcon className="w-6 h-6 text-[#909090]" />
+            </Link>
           </div>
         </div>
       </header>
@@ -42,82 +51,88 @@ export default function Home() {
             sizes="100vw"
             style={{ width: '100%', height: 'auto' }}
           />
-          <a
+          <Link
             className="w-40 absolute top-[50%] left-[90px] rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
             href="/category/1"
             rel="noopener noreferrer"
           >
             Comprar agora
-          </a>
+          </Link>
         </div>
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+        <section className="w-full">
+          <h2 className="w-full text-center text-xl sm:text-[46px] text-black font-medium py-8">
+            Descubra as fragrâncias que combinam com você
+          </h2>
+          <div className="flex gap-5 justify-center pb-4 sm:pb-8">
+            <div className="flex flex-col">
+              <Image
+                className="dark:invert"
+                src="http://localhost:8080/media/images/perfumaria/NATBRA-76420_2.jpg"
+                alt="Essencial"
+                width={296}
+                height={296}
+              />
+              <h3>Essencial Masculino 100ml</h3>
+              <div>⭐⭐⭐⭐⭐5.0/5</div>
+              <div>
+                R$ 212,00
+                R$ 232,00
+                20%
+              </div>
+            </div>
+            <div className="flex flex-col">
+              <Image
+                className="dark:invert"
+                src="http://localhost:8080/media/images/perfumaria/NATBRA-76420_2.jpg"
+                alt="Essencial"
+                width={296}
+                height={296}
+              />
+              <h3>Essencial Masculino 100ml</h3>
+              <div>⭐⭐⭐⭐⭐5.0/5</div>
+              <div>
+                R$ 212,00
+                R$ 232,00
+                20%
+              </div>
+            </div>
+            <div className="flex flex-col">
+              <Image
+                className="dark:invert"
+                src="http://localhost:8080/media/images/perfumaria/NATBRA-76420_2.jpg"
+                alt="Essencial"
+                width={296}
+                height={296}
+              />
+              <h3>Essencial Masculino 100ml</h3>
+              <div>⭐⭐⭐⭐⭐5.0/5</div>
+              <div>
+                R$ 212,00
+                R$ 232,00
+                20%
+              </div>
+            </div>
+            <div className="flex flex-col">
+              <Image
+                className="dark:invert"
+                src="http://localhost:8080/media/images/perfumaria/NATBRA-76420_2.jpg"
+                alt="Essencial"
+                width={296}
+                height={296}
+              />
+              <h3>Essencial Masculino 100ml</h3>
+              <div>⭐⭐⭐⭐⭐5.0/5</div>
+              <div>
+                R$ 212,00
+                R$ 232,00
+                20%
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      <footer className="flex gap-6 flex-wrap items-center justify-center bg-zinc-50 p-4 mt-auto">
+        <p>© 2024 Cosméticos&CO. Todos os direitos reservados.</p>
       </footer>
     </div>
   );

@@ -2,6 +2,7 @@ import cors from "cors";
 import express, { type Express } from "express";
 import helmet from "helmet";
 import { pino } from "pino";
+import path from 'path';
 
 import { env } from "@/configs/envConfig";
 import errorHandler from "@/middlewares/errorHandler";
@@ -27,6 +28,7 @@ app.use(requestLogger);
 
 // Routes
 app.use("/api/v1", routes);
+app.use('/media', express.static(path.join(__dirname, 'storage')));
 
 // Error handlers
 app.use(errorHandler());

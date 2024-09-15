@@ -1,3 +1,4 @@
+import ProductsSection from "@/components/Home/ProductsSection";
 import NavMenu from "@/components/NavMenu";
 import { MagnifyingGlassIcon } from "@heroicons/react/16/solid";
 import { ShoppingCartIcon, UserCircleIcon } from "@heroicons/react/24/outline";
@@ -25,9 +26,9 @@ export default function Home() {
           </Link>
           <NavMenu />
           <form action="" className="w-full ">
-            <div className="relative">
+            <div className="w-full relative">
               <MagnifyingGlassIcon className="w-5 h-5 fill-[#909090] absolute top-[15px] left-[17px]" />
-              <input type="text" name="search" placeholder="O que você está buscando hoje?" className="h-50 px-2 py-2 sm:py-3.5 sm:px-[54px] bg-[#F0F0F0] rounded-full" />
+              <input type="text" name="search" placeholder="O que você está buscando hoje?" className="w-full h-50 px-2 py-2 sm:py-3.5 sm:px-[54px] bg-[#F0F0F0] rounded-full" />
             </div>
           </form>
           <div className="flex gap-3">
@@ -59,77 +60,7 @@ export default function Home() {
             Comprar agora
           </Link>
         </div>
-        <section className="w-full">
-          <h2 className="w-full text-center text-xl sm:text-[46px] text-black font-medium py-8">
-            Descubra as fragrâncias que combinam com você
-          </h2>
-          <div className="flex gap-5 justify-center pb-4 sm:pb-8">
-            <div className="flex flex-col">
-              <Image
-                className="dark:invert"
-                src="http://localhost:8080/media/images/perfumaria/NATBRA-76420_2.jpg"
-                alt="Essencial"
-                width={296}
-                height={296}
-              />
-              <h3>Essencial Masculino 100ml</h3>
-              <div>⭐⭐⭐⭐⭐5.0/5</div>
-              <div>
-                R$ 212,00
-                R$ 232,00
-                20%
-              </div>
-            </div>
-            <div className="flex flex-col">
-              <Image
-                className="dark:invert"
-                src="http://localhost:8080/media/images/perfumaria/NATBRA-76420_2.jpg"
-                alt="Essencial"
-                width={296}
-                height={296}
-              />
-              <h3>Essencial Masculino 100ml</h3>
-              <div>⭐⭐⭐⭐⭐5.0/5</div>
-              <div>
-                R$ 212,00
-                R$ 232,00
-                20%
-              </div>
-            </div>
-            <div className="flex flex-col">
-              <Image
-                className="dark:invert"
-                src="http://localhost:8080/media/images/perfumaria/NATBRA-76420_2.jpg"
-                alt="Essencial"
-                width={296}
-                height={296}
-              />
-              <h3>Essencial Masculino 100ml</h3>
-              <div>⭐⭐⭐⭐⭐5.0/5</div>
-              <div>
-                R$ 212,00
-                R$ 232,00
-                20%
-              </div>
-            </div>
-            <div className="flex flex-col">
-              <Image
-                className="dark:invert"
-                src="http://localhost:8080/media/images/perfumaria/NATBRA-76420_2.jpg"
-                alt="Essencial"
-                width={296}
-                height={296}
-              />
-              <h3>Essencial Masculino 100ml</h3>
-              <div>⭐⭐⭐⭐⭐5.0/5</div>
-              <div>
-                R$ 212,00
-                R$ 232,00
-                20%
-              </div>
-            </div>
-          </div>
-        </section>
+        <ProductsSection />
       </main>
       <footer className="flex gap-6 flex-wrap items-center justify-center bg-zinc-50 p-4 mt-auto">
         <p>© 2024 Cosméticos&CO. Todos os direitos reservados.</p>

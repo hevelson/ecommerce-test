@@ -14,7 +14,6 @@ export interface ProductPreviewProps {
 }
 
 const ProductPreview: React.FC<ProductPreviewProps> = ({
-  id,
   title,
   price,
   promotional_price,
@@ -29,9 +28,9 @@ const ProductPreview: React.FC<ProductPreviewProps> = ({
   return (
     <div className="flex flex-col">
       <Image
-        className="dark:invert"
+        className="rounded-[20px]"
         src="http://localhost:8080/media/images/perfumaria/NATBRA-76420_2.jpg"
-        alt="Essencial"
+        alt={title}
         width={296}
         height={296}
       />

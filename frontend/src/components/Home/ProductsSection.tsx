@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import ProductPreview from "../ProductPreview";
+import ProductPreview from "./ProductPreview";
 
 const tempProducts = [
   {

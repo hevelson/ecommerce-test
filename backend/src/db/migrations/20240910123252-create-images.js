@@ -3,68 +3,63 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface
-      .createTable('images', {
-        id: {
-          allowNull: false,
-          autoIncrement: true,
-          primaryKey: true,
-          type: Sequelize.INTEGER,
+    await queryInterface.createTable('images', {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER,
+      },
+      file_name: {
+        type: Sequelize.STRING,
+      },
+      path: {
+        type: Sequelize.STRING,
+      },
+      created_at: {
+        allowNull: false,
+        type: Sequelize.DATE,
+      },
+      updated_at: {
+        type: Sequelize.DATE,
+      },
+    });
+    await queryInterface.createTable('products_images', {
+      product_id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        references: {
+          model: 'products',
+          key: 'id',
         },
-        file_name: {
-          type: Sequelize.STRING,
+      },
+      image_id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        references: {
+          model: 'images',
+          key: 'id',
         },
-        path: {
-          type: Sequelize.STRING,
+      },
+    });
+    await queryInterface.createTable('banners_images', {
+      banner_id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        references: {
+          model: 'banners',
+          key: 'id',
         },
-        created_at: {
-          allowNull: false,
-          type: Sequelize.DATE,
+      },
+      image_id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        references: {
+          model: 'images',
+          key: 'id',
         },
-        updated_at: {
-          type: Sequelize.DATE,
-        },
-      })
-      .then(function () {
-        queryInterface.createTable('products_images', {
-          product_id: {
-            type: Sequelize.INTEGER,
-            primaryKey: true,
-            references: {
-              model: 'products',
-              key: 'id',
-            },
-          },
-          image_id: {
-            type: Sequelize.INTEGER,
-            primaryKey: true,
-            references: {
-              model: 'images',
-              key: 'id',
-            },
-          },
-        });
-      })
-      .then(function () {
-        queryInterface.createTable('banners_images', {
-          banner_id: {
-            type: Sequelize.INTEGER,
-            primaryKey: true,
-            references: {
-              model: 'banners',
-              key: 'id',
-            },
-          },
-          image_id: {
-            type: Sequelize.INTEGER,
-            primaryKey: true,
-            references: {
-              model: 'images',
-              key: 'id',
-            },
-          },
-        });
-      });
+      },
+    });
   },
 
   async down(queryInterface, Sequelize) {

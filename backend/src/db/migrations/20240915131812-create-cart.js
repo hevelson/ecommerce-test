@@ -3,36 +3,21 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('categories', {
+    await queryInterface.createTable('cart', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      parent_id: {
+      user_id: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'categories',
+          model: 'users',
           key: 'id',
         },
         onUpdate: 'cascade',
         onDelete: 'cascade',
-      },
-      title: {
-        type: Sequelize.STRING,
-      },
-      description: {
-        type: Sequelize.STRING,
-      },
-      slug: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        unique: true,
-      },
-      listed: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: true,
       },
       created_at: {
         allowNull: false,
@@ -42,7 +27,15 @@ module.exports = {
         type: Sequelize.DATE,
       },
     });
-    await queryInterface.createTable('products_categories', {
+    await queryInterface.createTable('cart_products', {
+      cart_id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        references: {
+          model: 'cart',
+          key: 'id',
+        },
+      },
       product_id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -51,19 +44,21 @@ module.exports = {
           key: 'id',
         },
       },
-      category_id: {
+      quantity: {
         type: Sequelize.INTEGER,
-        primaryKey: true,
-        references: {
-          model: 'categories',
-          key: 'id',
-        },
+      },
+      created_at: {
+        type: Sequelize.DATE,
+      },
+      updated_at: {
+        allowNull: false,
+        type: Sequelize.DATE,
       },
     });
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('products_categories');
-    await queryInterface.dropTable('categories');
+    await queryInterface.dropTable('cart_products');
+    await queryInterface.dropTable('cart');
   },
 };

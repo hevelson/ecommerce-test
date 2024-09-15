@@ -30,7 +30,7 @@ export default class ProductService {
   // Retrieves all Products from the database
   async findAll(): Promise<ServiceResponse<IProduct[] | null>> {
     try {
-      const products = await this.model.findAll({ include: ['images', 'categories'] });
+      const products = await this.model.findAll({ include: ['images', 'categories', 'product_rates'] });
       if (!products || products.length === 0) {
         return ServiceResponse.failure('No products found', null, StatusCodes.NOT_FOUND);
       }
@@ -58,6 +58,7 @@ export default class ProductService {
       const paginatedData = await this.model.findAndCountAll({
         include: [
           'images',
+          'product_rates',
           {
             association: 'categories',
             where: {
@@ -101,7 +102,7 @@ export default class ProductService {
 
     try {
       const paginatedData = await this.model.findAndCountAll({
-        include: ['images', 'categories'],
+        include: ['images', 'categories', 'product_rates'],
         where: {
           [Op.or]: {
             title: {
@@ -143,7 +144,7 @@ export default class ProductService {
     try {
       const product = await this.model.findOne({
         where: { id },
-        include: ['images', 'categories'],
+        include: ['images', 'categories', 'product_rates'],
       });
       if (!product) {
         return ServiceResponse.failure('Product not found', null, StatusCodes.NOT_FOUND);

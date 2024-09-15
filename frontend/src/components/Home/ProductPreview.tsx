@@ -1,23 +1,18 @@
 "use client";
 
+import { IProduct } from "@/interfaces/products";
+import { staticContentUrl } from "@/libs/api";
 import { currencyFormatter, discountPercentage } from "@/libs/utils";
 import { Chip, Rating } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 
-export interface ProductPreviewProps {
-  id: number;
-  title: string;
-  price: number;
-  promotional_price: number | null;
-  rate: number;
-}
-
-const ProductPreview: React.FC<ProductPreviewProps> = ({
+const ProductPreview: React.FC<IProduct> = ({
   title,
   price,
   promotional_price,
-  rate
+  images,
+  product_rates,
 }) => {
   const hasPromotion = promotional_price && promotional_price > 0;
 
@@ -25,11 +20,21 @@ const ProductPreview: React.FC<ProductPreviewProps> = ({
   const formatedPromotionalPrice = hasPromotion ? currencyFormatter.format(promotional_price/100) : 0;
   const discountPercent = hasPromotion ? discountPercentage(price, promotional_price) : 0;
 
+  let rate = 0;
+  let rateSum = 0;
+  product_rates?.forEach(productRate => rateSum += productRate.rate);
+
+  if (product_rates?.length) {
+    rate = product_rates?.length > 0 ? rateSum / product_rates?.length : 0;
+  }
+
+  const thumbnail = images && images.length ? `${staticContentUrl}/${images[0].path}/${images[0].file_name}` : '/assets/images/product-placeholder.png';
+
   return (
     <div className="flex flex-col">
       <Image
         className="rounded-[20px]"
-        src="http://localhost:8080/media/images/perfumaria/NATBRA-76420_2.jpg"
+        src={thumbnail}
         alt={title}
         width={296}
         height={296}

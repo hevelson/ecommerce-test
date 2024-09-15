@@ -21,14 +21,14 @@ module.exports = {
       {
         id: 5,
         file_name: 'DESK_RIR_E_se_02_09_24.jpg',
-        path: 'storage/images/banners',
+        path: 'images/banners',
         created_at: new Date(),
         updated_at: new Date(),
       },
       {
         id: 6,
         file_name: 'DESK_RIR_Faces_02_09_24.jpg',
-        path: 'storage/images/banners',
+        path: 'images/banners',
         created_at: new Date(),
         updated_at: new Date(),
       },
